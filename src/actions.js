@@ -14,8 +14,9 @@ export function updateActions() {
 	actions['set_channel_name'] = {
 		name: 'Set channel name',
 		options: [this.CHANNELS_FIELD, Fields.Name],
-		callback: async ({ options }) => {
-			this.sendCommand(`SET ${options.channel} CHAN_NAME {${options.name.substr(0, 8)}}`)
+		callback: async ({ options }, context) => {
+			let name = await context.parseVariablesInString(options.name)
+			this.sendCommand(`SET ${options.channel} CHAN_NAME {${name}`)
 		},
 	}
 
@@ -57,8 +58,9 @@ export function updateActions() {
 	actions['channel_frequency'] = {
 		name: 'Set frequency of channel',
 		options: [this.CHANNELS_FIELD, Fields.Frequency],
-		callback: async ({ options }) => {
-			this.sendCommand(`SET ${options.channel} FREQUENCY ${options.value.replace('.', '')}`)
+		callback: async ({ options }, context) => {
+			let freq = await context.parseVariablesInString(options.value)
+			this.sendCommand(`SET ${options.channel} FREQUENCY ${freq.replace('.', '')}`)
 		},
 	}
 

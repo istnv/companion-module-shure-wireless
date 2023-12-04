@@ -145,7 +145,7 @@ class ShureWirelessInstance extends InstanceBase {
 				id: 'meteringInterval',
 				label: 'Metering Interval (in ms)',
 				width: 4,
-				min: 500,
+				min: 50,
 				max: 99999,
 				default: 5000,
 				required: true,

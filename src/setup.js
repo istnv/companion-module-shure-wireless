@@ -68,6 +68,7 @@ export const Fields = {
 		id: 'value',
 		default: '470.000',
 		regex: '/^(4[7-9][0-9]|[5-8][0-9]{2}|9[0-2][0-9]|93[0-7])\\.\\d(00|25|50|75)$/',
+		useVariables: true,
 	},
 	GainIncrement: {
 		type: 'number',
@@ -102,6 +103,7 @@ export const Fields = {
 		id: 'name',
 		default: '',
 		regex: '/^.{1,8}$/',
+		useVariables: true,
 	},
 	RfOutput: {
 		type: 'dropdown',
